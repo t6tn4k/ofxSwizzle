@@ -2,6 +2,7 @@
 #define OFX_SWIZZLE_DETAIL_FWD_HPP
 
 #include <cstddef>
+#include "ofMain.h"
 
 namespace ofxSwizzle { namespace detail {
 
