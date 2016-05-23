@@ -280,6 +280,16 @@ protected:
         return vector_size;
     }
 
+    constexpr auto data() noexcept -> pointer
+    {
+        return elems;
+    }
+
+    constexpr auto data() const noexcept -> const_pointer
+    {
+        return elems;
+    }
+
     constexpr auto begin() noexcept -> iterator
     {
         return iterator(elems, 0);
@@ -491,6 +501,7 @@ public:
     using base_type::empty;
     using base_type::size;
     using base_type::max_size;
+    using base_type::data;
     using base_type::at;
     using base_type::operator[];
     using base_type::front;
@@ -571,6 +582,7 @@ public:
     using base_type::empty;
     using base_type::size;
     using base_type::max_size;
+    using base_type::data;
     using base_type::at;
     using base_type::operator[];
     using base_type::front;
