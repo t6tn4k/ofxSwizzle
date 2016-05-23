@@ -29,6 +29,7 @@ struct vector_traits<ofxSwizzle::detail::vec<T, N>>
     static constexpr size_type size = N;
     static constexpr size_type vector_size = size;
     using index_type = std::make_index_sequence<size>;
+    static constexpr bool has_duplicated_index = false;
 };
 
 template <typename T, std::size_t N, typename Indices>
@@ -51,6 +52,8 @@ struct vector_traits<ofxSwizzle::detail::swizzle_proxy<
     static constexpr size_type size = Indices::size();
     static constexpr size_type vector_size = size;
     using index_type = Indices;
+    static constexpr bool has_duplicated_index
+        = ofxSwizzle::detail::has_duplicated(index_type());
 };
 
 template <>
@@ -71,6 +74,7 @@ struct vector_traits<ofVec2f>
     static constexpr size_type size = 2;
     static constexpr size_type vector_size = size;
     using index_type = std::index_sequence<size>;
+    static constexpr bool has_duplicated_index = false;
 };
 
 template <>
@@ -91,6 +95,7 @@ struct vector_traits<ofVec3f>
     static constexpr size_type size = 3;
     static constexpr size_type vector_size = size;
     using index_type = std::make_index_sequence<size>;
+    static constexpr bool has_duplicated_index = false;
 };
 
 template <>
@@ -111,6 +116,7 @@ struct vector_traits<ofVec4f>
     static constexpr size_type size = 4;
     static constexpr size_type vector_size = size;
     using index_type = std::make_index_sequence<size>;
+    static constexpr bool has_duplicated_index = false;
 };
 
 template <typename T>
