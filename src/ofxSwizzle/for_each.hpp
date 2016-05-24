@@ -18,7 +18,7 @@ inline auto for_each_impl(Vector&& vector, F const& f, std::index_sequence<Indic
 {
     ofxSwizzle::detail::unpack
     {
-        ((void)f(ofxSwizzle::detail::forward_element<Vector, Indices>(vector)), 0)...
+        (void(f(ofxSwizzle::detail::forward_element<Vector, Indices>(vector))), 0)...
     };
 }
 
@@ -27,9 +27,9 @@ inline auto for_each_impl(Lhs&& lhs, Rhs&& rhs, F const& f, std::index_sequence<
 {
     ofxSwizzle::detail::unpack
     {
-        ((void)f(
-            ofxSwizzle::detail::forward_element<Lhs>(lhs, Indices),
-            ofxSwizzle::detail::forward_element<Rhs>(rhs, Indices)),
+        (void(f(
+            ofxSwizzle::detail::forward_element<Lhs, Indices>(lhs),
+            ofxSwizzle::detail::forward_element<Rhs, Indices>(rhs))),
          0)...
     };
 }

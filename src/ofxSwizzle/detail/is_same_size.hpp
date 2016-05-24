@@ -12,7 +12,7 @@ template <typename Lhs, typename Rhs>
 auto is_same_size_impl(...) -> std::false_type;
 
 template <typename Lhs, typename Rhs>
-auto is_same_size_impl()
+auto is_same_size_impl(std::nullptr_t)
     -> std::integral_constant<bool,
         ofxSwizzle::detail::vector_traits<Lhs>::size
             == ofxSwizzle::detail::vector_traits<Rhs>::size>;
@@ -21,7 +21,7 @@ auto is_same_size_impl()
 
 template <typename Lhs, typename Rhs>
 struct is_same_size
-    : decltype(ofxSwizzle::detail::is_same_size_impl<Lhs, Rhs>())
+    : decltype(ofxSwizzle::detail::is_same_size_impl<Lhs, Rhs>(nullptr))
 {};
 
 template <typename Lhs, typename Rhs>
