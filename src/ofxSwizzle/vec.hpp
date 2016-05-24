@@ -159,7 +159,7 @@ public:
     auto operator=(vec const&) & -> vec& = default;
     auto operator=(vec&&) & -> vec& = default;
 
-    operator ofVec2f() const&
+    operator ofVec2f() const
     {
         return ofVec2f((*this)[0], (*this)[1]);
     }
@@ -378,7 +378,7 @@ public:
     auto operator=(vec const&) & -> vec& = default;
     auto operator=(vec&&) & -> vec& = default;
 
-    operator ofVec3f() const&
+    operator ofVec3f() const
     {
         return ofVec3f((*this)[0], (*this)[1], (*this)[2]);
     }
@@ -948,7 +948,7 @@ public:
     auto operator=(vec const&) & -> vec& = default;
     auto operator=(vec&&) & -> vec& = default;
 
-    operator ofVec4f() const&
+    operator ofVec4f() const
     {
         return ofVec4f((*this)[0], (*this)[1], (*this)[2], (*this)[3]);
     }
