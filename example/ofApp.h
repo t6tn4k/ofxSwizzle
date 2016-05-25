@@ -1,11 +1,3 @@
-ofxSwizzle
-========
-
-Vector swizzling for openFrameworks
-
-## Example
-
-```cpp
 #pragma once
 
 #include "ofMain.h"
@@ -172,5 +164,3 @@ public:
         }
     }
 };
-```
-
