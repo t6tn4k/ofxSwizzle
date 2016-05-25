@@ -37,7 +37,7 @@ inline auto for_each_impl(Lhs&& lhs, Rhs&& rhs, F const& f, std::index_sequence<
 } } // namespace detail::<unnamed>
 
 template <typename Vector, typename F>
-auto for_each(Vector&& vector, F const& f)
+inline auto for_each(Vector&& vector, F const& f)
     -> std::enable_if_t<ofxSwizzle::detail::is_vector_v<Vector>, F const&>
 {
     ofxSwizzle::detail::for_each_impl(
@@ -47,7 +47,7 @@ auto for_each(Vector&& vector, F const& f)
 }
 
 template <typename Lhs, typename Rhs, typename F>
-auto for_each(Lhs&& lhs, Rhs&& rhs, F const& f)
+inline auto for_each(Lhs&& lhs, Rhs&& rhs, F const& f)
     -> std::enable_if_t<ofxSwizzle::detail::is_same_size_v<Lhs, Rhs>, F const&>
 {
     ofxSwizzle::detail::for_each_impl(
