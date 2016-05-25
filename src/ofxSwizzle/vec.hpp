@@ -70,6 +70,13 @@ public:
     {
     }
 
+    template <typename... Ts, std::enable_if_t<sizeof...(Ts) == vector_size>* = nullptr>
+    vec(Ts&&... ts)
+        noexcept(std::is_nothrow_constructible<base_type, Ts&&...>::value)
+        : base_type(std::forward<Ts>(ts)...)
+    {
+    }
+
     explicit vec(value_type const& x)
         noexcept(std::is_nothrow_constructible<vec, value_type const&, index_type&&>::value)
         : vec(x, index_type())
@@ -144,6 +151,13 @@ public:
     vec(X&& x, Y&& y)
         noexcept(std::is_nothrow_constructible<base_type, X&&, Y&&>::value)
         : base_type(std::forward<X>(x), std::forward<Y>(y))
+    {
+    }
+
+    vec(value_type const& x, value_type const& y)
+        noexcept(std::is_nothrow_constructible<
+            base_type, value_type const&, value_type const&>::value)
+        : base_type(x, y)
     {
     }
 
@@ -363,6 +377,13 @@ public:
             ofxSwizzle::detail::forward_element<XY, 0>(xy),
             ofxSwizzle::detail::forward_element<XY, 1>(xy),
             std::forward<Z>(z))
+    {
+    }
+
+    vec(value_type const& x, value_type const& y, value_type const& z)
+        noexcept(std::is_nothrow_constructible<base_type,
+            value_type const&, value_type const&, value_type const&>::value)
+        : base_type(x, y, z)
     {
     }
 
@@ -933,6 +954,13 @@ public:
             ofxSwizzle::detail::forward_element<XYZ, 1>(xyz),
             ofxSwizzle::detail::forward_element<XYZ, 2>(xyz),
             std::forward<W>(w))
+    {
+    }
+
+    vec(value_type const& x, value_type const& y, value_type const& z, value_type const& w)
+        noexcept(std::is_nothrow_constructible<base_type,
+            value_type const&, value_type const&, value_type const&, value_type const&>::value)
+        : base_type(x, y, z, w)
     {
     }
 
