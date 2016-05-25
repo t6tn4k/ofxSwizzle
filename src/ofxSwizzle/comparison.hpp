@@ -2,8 +2,11 @@
 #define OFX_SWIZZLE_COMPARISON_HPP
 
 #include <algorithm>
+#include <functional>
 #include <type_traits>
+#include "./detail/is_same_size.hpp"
 #include "./detail/is_vector.hpp"
+#include "./apply.hpp"
 #include "./begin.hpp"
 #include "./end.hpp"
 
@@ -33,6 +36,60 @@ inline auto operator!=(Vector const& lhs, Vector const& rhs) -> bool
 
 using ofxSwizzle::detail::operator==;
 using ofxSwizzle::detail::operator!=;
+
+template <typename Lhs, typename Rhs>
+inline auto equal_to(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::equal_to<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::equal_to<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
+
+template <typename Lhs, typename Rhs>
+inline auto not_equal_to(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::not_equal_to<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::not_equal_to<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
+
+template <typename Lhs, typename Rhs>
+inline auto less(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::less<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::less<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
+
+template <typename Lhs, typename Rhs>
+inline auto less_equal(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::less_equal<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::less_equal<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
+
+template <typename Lhs, typename Rhs>
+inline auto greater(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::greater<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::greater<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
+
+template <typename Lhs, typename Rhs>
+inline auto greater_equal(Lhs&& lhs, Rhs&& rhs)
+    -> decltype(ofxSwizzle::apply(
+        std::greater_equal<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+{
+    return ofxSwizzle::apply(
+        std::greater_equal<>(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+}
 
 } // namespace ofxSwizzle
 
