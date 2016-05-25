@@ -4,7 +4,7 @@
 #include <functional>
 #include <type_traits>
 #include <utility>
-#include "./detail/binary_operator_impl.hpp"
+#include "./detail/binary_function_impl.hpp"
 #include "./detail/functional/arithmetric.hpp"
 #include "./detail/is_vector.hpp"
 #include "./apply.hpp"
@@ -27,46 +27,46 @@ inline auto operator-(Vector&& vector) -> decltype(auto)
 
 template <typename Lhs, typename Rhs>
 inline auto operator+(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::plus<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::plus<>());
 }
 
 template <typename Lhs, typename Rhs>
 inline auto operator-(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::minus<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::minus<>());
 }
 
 template <typename Lhs, typename Rhs>
 inline auto operator*(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::multiplies<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::multiplies<>());
 }
 
 template <typename Lhs, typename Rhs>
 inline auto operator/(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::divides<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::divides<>());
 }
 
 template <typename Lhs, typename Rhs>
 inline auto operator%(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::modulus<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::modulus<>());
 }
 

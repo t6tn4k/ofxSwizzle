@@ -4,7 +4,7 @@
 #include <functional>
 #include <type_traits>
 #include <utility>
-#include "./detail/binary_operator_impl.hpp"
+#include "./detail/binary_function_impl.hpp"
 #include "./detail/is_vector.hpp"
 #include "./apply.hpp"
 
@@ -20,19 +20,19 @@ inline auto operator!(Vector&& vector) -> decltype(auto)
 
 template <typename Lhs, typename Rhs>
 inline auto operator&&(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::logical_and<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::logical_and<>());
 }
 
 template <typename Lhs, typename Rhs>
 inline auto operator||(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_operator_impl(
+    -> decltype(ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::logical_or<>()))
 {
-    return ofxSwizzle::detail::binary_operator_impl(
+    return ofxSwizzle::detail::binary_function_impl(
         std::forward<Lhs>(lhs), std::forward<Rhs>(rhs), std::logical_or<>());
 }
 
