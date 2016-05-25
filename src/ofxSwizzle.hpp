@@ -14,6 +14,7 @@
 #include "./ofxSwizzle/for_each.hpp"
 #include "./ofxSwizzle/hyperbolic.hpp"
 #include "./ofxSwizzle/increment_decrement.hpp"
+#include "./ofxSwizzle/literals/scalar_swizzle.hpp"
 #include "./ofxSwizzle/logical.hpp"
 #include "./ofxSwizzle/make_vector.hpp"
 #include "./ofxSwizzle/power.hpp"
