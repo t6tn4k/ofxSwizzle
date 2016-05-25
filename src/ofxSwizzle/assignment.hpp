@@ -39,7 +39,6 @@ inline auto assign_impl(Lhs& lhs, Rhs&& rhs, Assign const& assign, std::nullptr_
         !ofxSwizzle::detail::is_same_value_type_v<Lhs, Rhs>
             && ofxSwizzle::detail::is_same_size_v<Lhs, Rhs>,
         decltype(void(assign(lhs[0], rhs[0])), lhs)>
-
 {
     ofxSwizzle::for_each(lhs, std::forward<Rhs>(rhs), assign);
     return lhs;
