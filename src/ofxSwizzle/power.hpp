@@ -4,6 +4,7 @@
 #include <utility>
 #include "./detail/functional/power.hpp"
 #include "./detail/binary_function_impl.hpp"
+#include "./apply.hpp"
 
 namespace ofxSwizzle {
 
@@ -18,22 +19,18 @@ inline auto pow(Lhs&& lhs, Rhs&& rhs)
         ofxSwizzle::detail::call_pow(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
 }
 
-template <typename Lhs, typename Rhs>
-inline auto sqrt(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_function_impl(
-        ofxSwizzle::detail::call_sqrt(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+template <typename Vector>
+inline auto sqrt(Vector&& vector)
+    -> decltype(ofxSwizzle::apply(ofxSwizzle::detail::call_sqrt(), std::forward<Vector>(vector)))
 {
-    return ofxSwizzle::detail::binary_function_impl(
-        ofxSwizzle::detail::call_sqrt(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+    return ofxSwizzle::apply(ofxSwizzle::detail::call_sqrt(), std::forward<Vector>(vector));
 }
 
-template <typename Lhs, typename Rhs>
-inline auto cbrt(Lhs&& lhs, Rhs&& rhs)
-    -> decltype(ofxSwizzle::detail::binary_function_impl(
-        ofxSwizzle::detail::call_cbrt(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
+template <typename Vector>
+inline auto cbrt(Vector&& vector)
+    -> decltype(ofxSwizzle::apply(ofxSwizzle::detail::call_cbrt(), std::forward<Vector>(vector)))
 {
-    return ofxSwizzle::detail::binary_function_impl(
-        ofxSwizzle::detail::call_cbrt(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
+    return ofxSwizzle::apply(ofxSwizzle::detail::call_cbrt(), std::forward<Vector>(vector));
 }
 
 template <typename Lhs, typename Rhs>

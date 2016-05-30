@@ -15,10 +15,11 @@ using std::hypot;
 
 struct call_pow
 {
-    template <typename T>
-    auto operator()(T&& t) const -> decltype(pow(std::forward<T>(t)))
+    template <typename T, typename U>
+    auto operator()(T&& t, U&& u) const
+        -> decltype(pow(std::forward<T>(t), std::forward<U>(u)))
     {
-        return pow(std::forward<T>(t));
+        return pow(std::forward<T>(t), std::forward<U>(u));
     }
 };
 
@@ -42,10 +43,11 @@ struct call_cbrt
 
 struct call_hypot
 {
-    template <typename T>
-    auto operator()(T&& t) const -> decltype(hypot(std::forward<T>(t)))
+    template <typename T, typename U>
+    auto operator()(T&& t, U&& u) const
+        -> decltype(hypot(std::forward<T>(t), std::forward<U>(u)))
     {
-        return hypot(std::forward<T>(t));
+        return hypot(std::forward<T>(t), std::forward<U>(u));
     }
 };
 
