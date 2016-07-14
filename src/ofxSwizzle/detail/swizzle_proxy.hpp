@@ -126,14 +126,12 @@ public:
 
     constexpr auto operator+(difference_type n) noexcept -> swizzle_proxy_iterator
     {
-        swizzle_proxy_iterator iter(*this);
-        return iter += n;
+        return swizzle_proxy_iterator(holder, index + n);
     }
 
     constexpr auto operator-(difference_type n) noexcept -> swizzle_proxy_iterator
     {
-        swizzle_proxy_iterator iter(*this);
-        return iter -= n;
+        return swizzle_proxy_iterator(holder, index - n);
     }
 
     constexpr auto operator-(swizzle_proxy_iterator const& other) noexcept -> difference_type

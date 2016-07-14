@@ -28,7 +28,6 @@ template <typename Lhs, typename Rhs>
 inline auto fmod(Lhs&& lhs, Rhs&& rhs)
     -> decltype(ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmod(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
-
 {
     return ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmod(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
@@ -38,7 +37,6 @@ template <typename Lhs, typename Rhs>
 inline auto remainder(Lhs&& lhs, Rhs&& rhs)
     -> decltype(ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_remainder(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
-
 {
     return ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_remainder(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
@@ -48,7 +46,6 @@ template <typename Lhs, typename Rhs>
 inline auto fmax(Lhs&& lhs, Rhs&& rhs)
     -> decltype(ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmax(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
-
 {
     return ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmax(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
@@ -58,7 +55,6 @@ template <typename Lhs, typename Rhs>
 inline auto fmin(Lhs&& lhs, Rhs&& rhs)
     -> decltype(ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmin(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
-
 {
     return ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fmin(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
@@ -68,7 +64,6 @@ template <typename Lhs, typename Rhs>
 inline auto fdim(Lhs&& lhs, Rhs&& rhs)
     -> decltype(ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fdim(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs)))
-
 {
     return ofxSwizzle::detail::binary_function_impl(
         ofxSwizzle::detail::call_fdim(), std::forward<Lhs>(lhs), std::forward<Rhs>(rhs));
