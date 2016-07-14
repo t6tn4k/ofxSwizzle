@@ -124,17 +124,17 @@ public:
         return *this;
     }
 
-    constexpr auto operator+(difference_type n) noexcept -> swizzle_proxy_iterator
+    constexpr auto operator+(difference_type n) const noexcept -> swizzle_proxy_iterator
     {
         return swizzle_proxy_iterator(holder, index + n);
     }
 
-    constexpr auto operator-(difference_type n) noexcept -> swizzle_proxy_iterator
+    constexpr auto operator-(difference_type n) const noexcept -> swizzle_proxy_iterator
     {
         return swizzle_proxy_iterator(holder, index - n);
     }
 
-    constexpr auto operator-(swizzle_proxy_iterator const& other) noexcept -> difference_type
+    constexpr auto operator-(swizzle_proxy_iterator const& other) const noexcept -> difference_type
     {
         return static_cast<difference_type>(index_array[index])
             - static_cast<difference_type>(other.index_array[other.index]);
