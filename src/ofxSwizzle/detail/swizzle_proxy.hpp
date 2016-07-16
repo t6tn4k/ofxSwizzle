@@ -150,22 +150,22 @@ public:
         return holder[index_array[index + i]];
     }
 
-    constexpr auto operator<(swizzle_proxy_iterator const& other) noexcept -> bool
+    constexpr auto operator<(swizzle_proxy_iterator const& other) const noexcept -> bool
     {
         return index < other.index;
     }
 
-    constexpr auto operator>(swizzle_proxy_iterator const& other) noexcept -> bool
+    constexpr auto operator>(swizzle_proxy_iterator const& other) const noexcept -> bool
     {
         return other < *this;
     }
 
-    constexpr auto operator<=(swizzle_proxy_iterator const& other) noexcept -> bool
+    constexpr auto operator<=(swizzle_proxy_iterator const& other) const noexcept -> bool
     {
         return !(other < *this);
     }
 
-    constexpr auto operator>=(swizzle_proxy_iterator const& other) noexcept -> bool
+    constexpr auto operator>=(swizzle_proxy_iterator const& other) const noexcept -> bool
     {
         return !(*this < other);
     }
@@ -225,7 +225,7 @@ protected:
     using iterator
         = ofxSwizzle::detail::swizzle_proxy_iterator<T, N, index_type, false>;
     using const_iterator
-        = ofxSwizzle::detail::swizzle_proxy_iterator<T, N, index_type, true> const;
+        = ofxSwizzle::detail::swizzle_proxy_iterator<T, N, index_type, true>;
     using reverse_iterator = std::reverse_iterator<iterator>;
     using const_reverse_iterator = std::reverse_iterator<const_iterator>;
 
@@ -388,12 +388,12 @@ protected:
 
     constexpr auto back() -> reference
     {
-        return *end();
+        return *--end();
     }
 
     constexpr auto back() const -> const_reference
     {
-        return *cend();
+        return *--cend();
     }
 
     constexpr auto fill(value_type const& value)
